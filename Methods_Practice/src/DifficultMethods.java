@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Difficult_Methods {
+public class DifficultMethods {
     public static void main(String[] args) {
 
         //That practice was so awesome , it was 3 days with Number_Check but i don't care!

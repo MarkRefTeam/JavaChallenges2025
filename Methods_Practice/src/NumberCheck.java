@@ -1,17 +1,16 @@
 import java.util.Scanner;
 
-public class Number_Check {
+public class NumberCheck {
 
     //Write a method that…
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        //Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter a number: ");
-        int number = sc.nextInt();
+        //System.out.println("Enter a number: ");
+        //int number = sc.nextInt();
 
-        returnIfNumberIsPrime(number);              //returnIfNumberIsPrime
-        sc.close();
+        //sc.close();
 
 
         int testNumber = 10;
@@ -28,7 +27,7 @@ public class Number_Check {
         int first = 10;              //Numbers for firstNumIsDivisibleBySecond boolean!
         int second = 5;              //Numbers for firstNumIsDivisibleBySecond boolean!
 
-        boolean isDivisible = firstNumIsDivisibleBySecond(first, second);   //firstNumIsDivisibleBySecond
+        boolean isDivisible = isFirstNumberIsDivisibleBySecond(first, second);   //firstNumIsDivisibleBySecond
         if (isDivisible) {
             System.out.println("First number" + first + "is divisible by" + second);
         } else {
@@ -46,11 +45,13 @@ public class Number_Check {
             System.out.println(a + " * " + b + " ≠ " + c);                  // (≠) windows + R (Charmap)
         }
 
-        if (isPrime(number)) {
-            System.out.println(number + " is a prime number");
-        } else {
-            System.out.println(number + " is not a prime number");
-        }
+        //I deleted the scanner for correction! I hope it was the problem :)
+
+        //if (isPrime(number)) {
+            //System.out.println(number + " is a prime number");
+        //} else {
+            //System.out.println(number + " is not a prime number");
+        //}
 
         String[] outputs = {
                 thirdNumber + "is greater than 50?" + (thirdNumber > 50),   //We can change for "true"
@@ -66,7 +67,7 @@ public class Number_Check {
         System.out.println("First number : " + firstNumber);
         System.out.println("Second number : " + secondNumber);
         System.out.println("Greatest number : " + greatestNumber);
-        System.out.println(whichOneNumberIsGreater(10, 20));                //whichOneNumberIsGreater
+        System.out.println(decideGreaterNumber(10, 20));                //whichOneNumberIsGreater
         System.out.println(hasTwoNumbersWithSum(numbers, target));          //hasTwoNumbersWithSum
         System.out.println(repeatString("Hello", 3));                //repeatString
         System.out.println(repeatString("Java", 5));                 //repeatString
@@ -82,9 +83,10 @@ public class Number_Check {
 
         printNumbers();                          //printNumbers
         printWithBorders(outputs);               //printWithBorders
-        printDivisibleByFive(50);        //printDivisibleByFive
+        printNumbersDivisibleBy5Upto(50);        //printDivisibleByFive
         printCubicNumbers(4);                 //printCubicNumbers
         printCubicNumbersUpToN(64);           //printCubicNumbersUpToN
+        returnIfNumberIsPrime(29);               //returnIfNumberIsPrime
 
     }
 
@@ -114,7 +116,7 @@ public class Number_Check {
     //This method compares two numbers and returns a string indicating which number is greater.
     //If they are equal , it returns a message starting that they are the same.
 
-    public static String whichOneNumberIsGreater(int num1, int num2) {
+    public static String decideGreaterNumber(int num1, int num2) {
 
         if (num1 > num2) {
             return "The first number is greater than the second number";
@@ -181,7 +183,7 @@ public class Number_Check {
     //if each number is evenly divisible by 5 using the modulus operator %.
     //If the remainder is 0, the number is printed.
 
-    public static void printDivisibleByFive(int number) {
+    public static void printNumbersDivisibleBy5Upto(int number) {
 
         System.out.println("Numbers divisible by 5 : " + number + " : ");
         for (int i = 1; i <= number; i++) {
@@ -222,20 +224,22 @@ public class Number_Check {
     // since any larger factor would have a corresponding smaller factor that has already been checked.
     // If a divisor is found, the method returns false; otherwise, it returns true.
 
-    public static boolean isPrime(int number) {
-        if (number < 2) return false;                       // Numbers less than 2 are not prime
-        for (int i = 2; i <= Math.sqrt(number); i++) {      // Loop from 2 to √number
-            if (number % i == 0) return false;              // If divisible, it's not prime
-        }
-        return true;                                        // If no divisors found, it's a prime number
-    }
+    //I deleted the scanner so this boolean method is useless at this situation!
+
+    //public static boolean isPrime(int number) {
+        //if (number < 2) return false;                       // Numbers less than 2 are not prime
+        //for (int i = 2; i <= Math.sqrt(number); i++) {      // Loop from 2 to √number
+           // if (number % i == 0) return false;              // If divisible, it's not prime
+        //}
+        //return true;                                        // If no divisors found, it's a prime number
+    //}
 
     //Gets in two numbers and returns whether the first is divisible by the second one.
     // Checks whether the first number is divisible by the second number.
     // A number is divisible by another if the remainder of their division is 0.
     // The method returns true if the first number is evenly divisible by the second, otherwise, it returns false.
 
-    public static boolean firstNumIsDivisibleBySecond(int first, int second) {
+    public static boolean isFirstNumberIsDivisibleBySecond(int first, int second) {
 
         return first % second == 0;    // If remainder is 0, the first number is divisible by the second
     }
