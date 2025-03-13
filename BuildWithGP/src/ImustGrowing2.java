@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class iMustGrowing2 {
+public class ImustGrowing2 {
 
     static int[] arr = {1, 2, 3, 4, 5};
 
@@ -44,7 +44,7 @@ public class iMustGrowing2 {
 
     }
 
-    public static Boolean isEvenNumber(int number) {
+    public static boolean isEvenNumber(int number) {
 
         return number % 2 == 0;
     }

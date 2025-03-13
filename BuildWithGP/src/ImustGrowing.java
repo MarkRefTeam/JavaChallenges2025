@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class iMustGrowing {
+public class ImustGrowing {
 
     static int a = 10;
     static int b = 5;
@@ -36,7 +36,7 @@ public class iMustGrowing {
 
         mathTask3(j, d, a, b, c);
 
-        boolean resultBL = twoEqualNumber(num1,num2);
+        boolean resultBL = isTwoEqualNumber(num1,num2);
         System.out.println("resultBL: " + resultBL);
 
         scanner.close();
@@ -83,7 +83,7 @@ public class iMustGrowing {
     //If the two number is equal the result is "equal or true" too.
     //If this two number isn't equal the result is "false".
 
-    public static boolean twoEqualNumber(int num1, int num2) {
+    public static boolean isTwoEqualNumber(int num1, int num2) {
         if (num1 == num2) {
             return true;
         } else {

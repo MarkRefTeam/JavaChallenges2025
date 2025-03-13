@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class algorithmWithDoWhile {
+public class AlgorithmWithDoWhile {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
