@@ -5,13 +5,6 @@ public class NumberCheck {
     //Write a method that…
 
     public static void main(String[] args) {
-        //Scanner sc = new Scanner(System.in);
-
-        //System.out.println("Enter a number: ");
-        //int number = sc.nextInt();
-
-        //sc.close();
-
 
         int testNumber = 10;
         int[] numbers = {2, 7, 11, 15};
@@ -48,9 +41,9 @@ public class NumberCheck {
         //I deleted the scanner for correction! I hope it was the problem :)
 
         //if (isPrime(number)) {
-            //System.out.println(number + " is a prime number");
+        //System.out.println(number + " is a prime number");
         //} else {
-            //System.out.println(number + " is not a prime number");
+        //System.out.println(number + " is not a prime number");
         //}
 
         String[] outputs = {
@@ -140,7 +133,7 @@ public class NumberCheck {
             }
         }
 
-        //That's variation is logical, but we kill the console...i would like call a "While"
+        //That's variation is logical, but we kill the console...I would like call a "While"
 
         //int i = 1;
         //while (i <= 100) {
@@ -148,7 +141,7 @@ public class NumberCheck {
         //i++;
     }
 
-    //Extra Task: I just try something...actually it isn't finish yet but i will continue soon!
+    //Extra Task: I just try something...actually it isn't finish yet, but I will continue soon!
     //We should talk about this later! Thank you.
     //This method prints an array of Strings with a border around it.
     //It first determines the longest string in the array to ensure the border is correctly sized.
@@ -202,20 +195,22 @@ public class NumberCheck {
     //If it finds a divisor, it returns false; otherwise, it returns true.
     //I added a scanner in main for call a number from user.
 
-    public static void returnIfNumberIsPrime(int number) {
+    public static boolean returnIfNumberIsPrime(int number) {
 
         if (number < 2) {
             System.out.println(number + " is not a prime number");
-            return;
+            return false;
         }
         for (int i = 2; i <= Math.sqrt(number); i++) {
             if (number % i == 0) {
                 System.out.println(number + " is not a prime number");
-                return;
+                return false;
             }
         }
         System.out.println(number + " is a prime number");
+        return true;
     }
+
 
     //Extra Task :
     // Checks whether a given number is a prime number.
@@ -227,11 +222,11 @@ public class NumberCheck {
     //I deleted the scanner so this boolean method is useless at this situation!
 
     //public static boolean isPrime(int number) {
-        //if (number < 2) return false;                       // Numbers less than 2 are not prime
-        //for (int i = 2; i <= Math.sqrt(number); i++) {      // Loop from 2 to √number
-           // if (number % i == 0) return false;              // If divisible, it's not prime
-        //}
-        //return true;                                        // If no divisors found, it's a prime number
+    //if (number < 2) return false;                       // Numbers less than 2 are not prime
+    //for (int i = 2; i <= Math.sqrt(number); i++) {      // Loop from 2 to √number
+    // if (number % i == 0) return false;              // If divisible, it's not prime
+    //}
+    //return true;                                        // If no divisors found, it's a prime number
     //}
 
     //Gets in two numbers and returns whether the first is divisible by the second one.
@@ -269,7 +264,7 @@ public class NumberCheck {
 
     //Gets in a number (n) and writes the cubic numbers to the console up to that number. n=64 → Output: 1, 8, 27, 64
     // Writes all cubic numbers up to the given number n.
-    // It iterates from 1 upwards, calculating the cube of each number,
+    // It iterates from 1 upward, calculating the cube of each number,
     // until the cube exceeds n. Only valid cubic numbers are printed.
     // Example: n=64 → Output: 1, 8, 27, 64
 
@@ -284,7 +279,7 @@ public class NumberCheck {
     //at different indexes can add up to that number.
     // Checks whether the sum of any two different numbers in the array equals the given number.
     // The method iterates through the array and checks every possible pair of elements.
-    // If a pair sums up to the given number, it returns true. Otherwise, it returns false.
+    // If a pair of sums up to the given number, it returns true. Otherwise, it returns false.
 
     public static boolean hasTwoNumbersWithSum(int[] arr, int target) {
         for (int i = 0; i < arr.length; i++) {
@@ -329,29 +324,3 @@ public class NumberCheck {
         return result;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

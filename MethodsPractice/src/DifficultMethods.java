@@ -35,7 +35,7 @@ public class DifficultMethods {
 
     }
 
-    //Gets in a two-dimensional array and returns the sum of all of the numbers.
+    //Gets in a two-dimensional array and returns the sum of all the numbers.
     //This method receives a two-dimensional array and returns the sum of all elements in it.
     //It uses a nested loop to iterate through all elements and accumulates the sum.
 
@@ -88,14 +88,12 @@ public class DifficultMethods {
     //and then returns the absolute difference.
 
     public static int diagonalDifference(int[][] matrix) {
-        int primarySum = 0;
+        int primarySum = sumMainDiagonal(matrix);
         int secondarySum = 0;
 
         for (int i = 0; i < matrix.length; i++) {
-            primarySum += matrix[i][i];
             secondarySum += matrix[i][matrix.length - 1 - i];
         }
         return Math.abs(primarySum - secondarySum);
     }
 }
-
