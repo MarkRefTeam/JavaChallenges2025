@@ -20,7 +20,9 @@ public class PerfectSquareCalculator {
     }
 
     public static boolean perfectSquareCalculator(int number) {
-        if (number < 0) return false;
+        if (number < 0) {
+            return false;
+        }
 
         //1.Variation!
 
@@ -33,7 +35,9 @@ public class PerfectSquareCalculator {
     // or!
 
     public static boolean isPerfectSquare(int number) {
-        if (number < 0) return false;
+        if (number < 0) {
+            return false;
+        }
 
         //2.Variation!
 
