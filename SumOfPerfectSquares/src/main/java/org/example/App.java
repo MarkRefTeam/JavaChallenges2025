@@ -42,10 +42,10 @@ public class App {
 
             usedNumbers.add(number);
 
-            boolean result = PerfectSquareCalculator.PerfectSquareCalculator(number);
+            boolean result = PerfectSquareCalculator.perfectSquareCalculator(number);
 
             if (result) {
-                int sum = PerfectSquareCalculator.CalculatePerfectSquareSum(number);
+                int sum = PerfectSquareCalculator.calculatePerfectSquareSum(number);
                 System.out.println("Sum of perfect squares up to " + number + " is " + sum);
                 System.out.println("You earned " + points + " points!");
                 totalPoints += points;

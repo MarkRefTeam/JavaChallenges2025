@@ -4,7 +4,7 @@ public class PerfectSquareCalculator {
 
     public static int points = 0;
 
-    public static int CalculatePerfectSquareSum(int num) {
+    public static int calculatePerfectSquareSum(int num) {
 
 
         if (num < 1) {
@@ -19,14 +19,25 @@ public class PerfectSquareCalculator {
         return sum;
     }
 
-    public static boolean PerfectSquareCalculator(int number) {
-        if (number < 2) return false;
+    public static boolean perfectSquareCalculator(int number) {
+        if (number < 0) return false;
 
-        for (int i = 2; i <= Math.sqrt(number); i++) {
-            if (number % i * i == 0) {
-                return false;
-            }
-        }
-        return true;
+        //1.Variation!
+
+        double sqrt = Math.sqrt(number);
+        return sqrt == Math.floor(sqrt);
+    }
+
+    //I'm not sure about this, but I think you mean this right?
+
+    // or!
+
+    public static boolean isPerfectSquare(int number) {
+        if (number < 0) return false;
+
+        //2.Variation!
+
+        int sqrt = (int) Math.sqrt(number);
+        return sqrt * sqrt == number;
     }
 }
