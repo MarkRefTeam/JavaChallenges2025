@@ -12,10 +12,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        //Writes your own name to the console!
-
-        //1.Variation:
-        System.out.println("Szöllősy Márk");
+        printName();
 
         //2.Variation:
         //Static Scanner!
@@ -29,7 +26,7 @@ public class App {
         int num = scanner.nextInt();
         scanner.nextLine();
         System.out.println("30% of your number is: " + getThirtyPercent(num));
-        System.out.println("42.8 of your number is: " + getFortyDotEightPercent(num));
+        System.out.println("42.8 of your number is: " + getFortyTwoDotEightPercent(num));
 
         String[] names = {"Márk", "Ancsa", "GP"};
         String result = returnEmptyString(names);
@@ -70,10 +67,10 @@ public class App {
 
         //No, I don't know that...Someone helped me about this task!
 
-        System.out.println("Give information about your brute ");
-        int brute = scanner.nextInt();
+        System.out.println("Give information about your gross ");
+        int gross = scanner.nextInt();
 
-        System.out.println("Your netto payment is : " + netto(brute) + "HUF");
+        System.out.println("Your net payment is : " + net(gross) + "HUF");
 
         boolean[] array = {true, false, true};
         System.out.println("Your Xor value is: " + hasXorInPseudo(array));
@@ -92,28 +89,62 @@ public class App {
         System.out.println();
     }
 
+    public static void printName() {
+
+        //Writes your own name to the console!
+
+        //1.Variation:
+        System.out.println("Szöllősy Márk");
+
+    }
+
     //Gets in a number and returns its 30%!
 
     public static double getThirtyPercent(int num) {
         return num * 0.3;
+
+        /**
+         * Calculates 30% of the given number.
+         * @param num the input number
+         * @return 30% of the input value
+         */
     }
 
     //Gets in an array of Strings and returns an empty String!
 
     public static String returnEmptyString(String[] inputArray) {
         return "";
+
+        /**
+         * Returns an empty string regardless of the input.
+         * @param inputArray an array of strings (ignored)
+         * @return an empty string
+         */
     }
 
     //Gets in a number and returns its 42.8%
 
-    public static double getFortyDotEightPercent(int num) {
-        return num * 0.42;
+    public static double getFortyTwoDotEightPercent(int num) {
+        return Math.round(num * 0.428);
+
+        /**
+         * Returns 42.8% of the given number.
+         * @param num the input number
+         * @return 42.8% of num
+         */
     }
 
     //Gets in a String and returns the double of its length!
 
     public static int getDoubleLength(String input) {
         return input.length() * 2;
+
+        /**
+         * Returns twice the length of the given string.
+         * @param input the input string
+         * @return double the length of the input
+         */
+
     }
 
     //Gets in two numbers and returns how much you would need
@@ -121,13 +152,27 @@ public class App {
 
     public static int getDifference(int first, int second) {
         return second - first;
+
+        /**
+         * Calculates how much you need to add to the first number
+         * to get the second one.
+         * @param first the starting number
+         * @param second the target number
+         * @return the difference (second - first)
+         */
     }
 
     //Gets in a String and returns the square root of its length!
 
     public static double getSquareRootOfLength(String input) {
-        int length = input.length();
-        return Math.sqrt(length);
+        return Math.sqrt(input.length());
+
+        /**
+         * Returns the square root of the input string's length.
+         * @param input the input string
+         * @return square root of the input's length
+         */
+
     }
 
     //Gets in a String and returns the factorial of its length!
@@ -135,10 +180,17 @@ public class App {
     public static int getFactorialOfLength(String input) {
         int length = input.length();
         int result = 1;
-        for (int i = 1; i < length; i++) {
+        for (int i = 1; i <= length; i++) {    //I hope you mean this one, right?
             result *= i;
         }
         return result;
+
+        /**
+         * Calculates the factorial of the input string's length.
+         * For example, if the string length is 4, it returns 4 * 3 * 2 * 1 = 24.
+         * @param input the input string
+         * @return factorial of the string's length
+         */
     }
 
     //Gets in a number and returns 100 divided by that number!
@@ -162,12 +214,21 @@ public class App {
         if (number <= 1) {
             return false;
         }
-        for (int i = 2; i < Math.sqrt(number); i++) {
+        for (int i = 2; i <= Math.sqrt(number); i++) {   //Yes, you are right! " <= " Thanks!
             if (number % i == 0) {
                 return false;
             }
         }
         return true;
+
+        /**
+         * Checks whether a given number is a prime number.
+         * A number is prime if it is greater than 1 and divisible only by 1 and itself.
+         *
+         * @param number the number to check
+         * @return true if the number is prime, false otherwise
+         */
+
     }
 
 
@@ -179,6 +240,17 @@ public class App {
         } else {
             return number * 3;
         }
+
+        /**
+         * Evaluates a number based on three conditions:
+         * a) If the number is prime, returns its square
+         * b) If not prime but divisible by 4, returns its double
+         * c) Otherwise, returns its triple
+         *
+         * @param number the input number
+         * @return evaluated result based on the described logic
+         */
+
     }
 
     //Gets in an array of Strings and returns a new array
@@ -190,6 +262,15 @@ public class App {
             lengths[i] = words[i].length();
         }
         return lengths;
+
+        /**
+         * Gets an array of strings and returns an array of integers
+         * representing the length of each string.
+         *
+         * @param words an array of strings
+         * @return an array of integers containing each string's length
+         */
+
     }
 
     /**
@@ -201,16 +282,40 @@ public class App {
      */
 
     //I couldn't do this alone, I used help for this!
-    public static double szja(int brute) {
-        return brute * 0.15;
+    public static double szja(int gross) {
+        return gross * 0.15;
+
+        /**
+         * Calculates 15% tax from the given gross income.
+         *
+         * @param gross the gross income
+         * @return 15% of the gross value
+         */
+
     }
 
-    public static double tbj(int brute) {
-        return brute * 0.185;
+    public static double tbj(int gross) {
+        return gross * 0.185;
+
+        /**
+         * Calculates 18.5% tax from the given gross income.
+         *
+         * @param gross the gross income
+         * @return 18.5% of the gross value
+         */
+
     }
 
-    public static double netto(int brute) {
-        return brute - szja(brute) - tbj(brute);
+    public static double net(int gross) {
+        return gross - szja(gross) - tbj(gross);
+
+        /**
+         * Calculates the net income after applying SZJA and TBJ deductions.
+         *
+         * @param gross the gross income
+         * @return the net income after deductions
+         */
+
     }
 
     /**
@@ -226,28 +331,28 @@ public class App {
     //static Scanner scanner = new Scanner(System.in);
 
     //public static void main(String[] args) {
-    //        System.out.print("Add meg a brute payment (HUF): ");
-    //        int brute = scanner.nextInt();
+    //        System.out.print("Add meg a gross payment (HUF): ");
+    //        int gross = scanner.nextInt();
 
-    //double nettoPayment = calculateNetto(brute);
+    //double netPayment = calculateNet(gross);
 
-    //System.out.println("A netto payment is: " + nettoPayment + " HUF");
+    //System.out.println("A net payment is: " + netPayment + " HUF");
     // }
 
-    //public static double calculateSZJA(int brute) {
-    //return brute * 0.15;
+    //public static double calculateSZJA(int gross) {
+    //return gross * 0.15;
     //}
 
-    //public static double calculateTBJ(int brute) {
-    //return brute * 0.185;
+    //public static double calculateTBJ(int gross) {
+    //return gross * 0.185;
     //}
 
     //It's same right? Check now!
 
-    //public static double calculateNetto(int brute) {
-    //        double szja = calculateSZJA(brute);
-    //        double tbj = calculateTBJ(brute);
-    //        return brute - szja - tbj;
+    //public static double calculateNet(int gross) {
+    //        double szja = calculateSZJA(gross);
+    //        double tbj = calculateTBJ(gross);
+    //        return gross - szja - tbj;
     //    }
     //}
 
@@ -260,12 +365,21 @@ public class App {
     //true ^ true -> false
     //false ^ false -> false
     //false ^ true -> true
+
     public static boolean hasXorInPseudo(boolean[] array) {
         boolean result = false;
         for (boolean value : array) {
             result ^= value;
         }
         return result;
+
+        /**
+         * Evaluates XOR operation on all elements in the boolean array.
+         *
+         * @param array an array of boolean values
+         * @return the result of XOR-ing all values
+         */
+
     }
 
     //Gets in an array of numbers and returns a new array
@@ -286,4 +400,12 @@ public class App {
         }
         return result;
     }
+
+    /**
+     * Filters the input array and returns only the negative numbers.
+     *
+     * @param numbers the array of integers to filter
+     * @return a new array containing only negative numbers
+     */
+
 }
