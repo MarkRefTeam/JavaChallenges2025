@@ -1,4 +1,5 @@
 package org.example;
+import org.example.engine.GameLauncher;
 
 
 import java.util.ArrayList;
@@ -14,21 +15,26 @@ public class App {
 
     public static void main(String[] args) {
 
+        GameLauncher launcher = new GameLauncher();
+
         //Methods:
         showMainMenu();
         createYourCharter(1);
         addToParty(2);
+        launcher.start();
+
+
 
         Dungeon.enterDungeon(3);
         CharacterStats.warriorStats();
         CharacterStats.archerStats();
         CharacterStats.mageStats();
 
-        Character player = new Character("Kodiak", "Warrior", 150, 30);
+        Character player1 = new Character("Kodiak", "Warrior", 150, 30);
         Character player2 = new Character("Kodiak", "Mage", 50, 90);
         Character player3 = new Character("Kodiak", "Archer", 90, 60);
 
-        player.displayStats();
+        player1.displayStats();
         player2.displayStats();
         player3.displayStats();
 
@@ -109,7 +115,7 @@ public class App {
         }
     }
 
-    /// Create Party!
+    /// Create a Party!
 
     public static int addToParty(int input) {
         System.out.println("You can create your party");
