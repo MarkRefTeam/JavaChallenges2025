@@ -5,6 +5,13 @@ public class FiveDimensionalApp {
 
     //Return the number of strings that do not contain the letters “e”, “E”, or “r”.
 
+    public static boolean isClean(String word) {
+        return !word.contains("e") && !word.contains("E") && !word.contains("r");
+
+        //ohhhh, I understand! So I call a boolean method for logic and after just call in the "IF" statement!
+        //SOC (Separation of Concerns)  !!! yeah!
+    }
+
     public static int countFilteredWords(String[][][][][] words) {
 
         int count = 0;
@@ -14,7 +21,8 @@ public class FiveDimensionalApp {
                 for (String[][] array : block) {
                     for (String[] row : array) {
                         for (String word : row) {
-                            if (!word.toLowerCase().contains("e") && !word.toLowerCase().contains("r")) {
+                            if (isClean(word)) {
+                                //So here! (it's very good practice, and it's absolutely practical! Thank you!)
                                 count++;
                             }
                         }
