@@ -146,7 +146,7 @@ public class FourDimensionalApp {
                 for (String[] row : array) {
                     for (String word : row) {
                         int vowelCount = 0;
-                        for (char c : word.toCharArray()) {
+                        for (char c : word.toLowerCase().toCharArray()) {
                             if ("aeiou".indexOf(c) != -1) {
                                 vowelCount++;
                                 // Thanks for the feedback! :)
