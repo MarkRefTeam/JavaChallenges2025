@@ -9,17 +9,17 @@ public class Person {
     protected int age;
     protected String name;
     protected Gender gender;
-    protected boolean isRentable;
+    protected boolean isOpenToWork; //good idea! Thanks!
 
-    public Person(int age, String name, Gender gender,boolean isRentable) {
+    public Person(int age, String name, Gender gender,boolean isOpenToWork) {
         this.age = age;
         this.name = name;
         this.gender = gender;
-        this.isRentable = isRentable;
+        this.isOpenToWork = isOpenToWork;
     }
 
     public void introduce() {
-        String availability = isRentable ? "I am available for interview." : "I'm currently not available.";
+        String availability = isOpenToWork ? "I am available for interview." : "I'm currently not available.";
         System.out.println("Hi, my name is " + name + ". I am " + age + ". I am a " + gender + ". " + availability);
     }
 
@@ -40,8 +40,8 @@ public class Person {
         System.out.println(goals.get(index));
     }
 
-    public boolean isRentable() {
-        return isRentable;
+    public boolean isOpenToWork() {
+        return isOpenToWork;
     }
 
     @Override

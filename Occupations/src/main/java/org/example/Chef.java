@@ -1,10 +1,10 @@
 package org.example;
 
-public class Chief extends Person {
+public class Chef extends Person {
 
     private int numberOfPeopleManaged;
 
-    public Chief(String name,int age,Gender gender, int numberOfPeopleManaged,boolean isRentable) {
+    public Chef(String name, int age, Gender gender, int numberOfPeopleManaged, boolean isRentable) {
         super(age,name,gender,isRentable);
         this.numberOfPeopleManaged = numberOfPeopleManaged;
     }

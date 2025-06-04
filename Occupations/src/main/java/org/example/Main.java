@@ -12,7 +12,7 @@ public class Main {
         //person.introduce();
         //person.printGoal();
 
-        Chief chief = new Chief("Mark",37,Gender.Man,8,true);
+        Chef chief = new Chef("Mark",37,Gender.MAN,8,true);
         chief.introduce();
         chief.printGoal();
         System.out.println();
@@ -23,19 +23,19 @@ public class Main {
 
         List<Person> people = new ArrayList<>();
 
-        people.add(new Person(25,"Raul",Gender.Man,true));
-        people.add(new Person(18,"Veronica",Gender.Woman,false));
-        people.add(new Person(27,"Rio",Gender.Man,true));
-        people.add(new Person(33,"Martin",Gender.Man,false));
-        people.add(new Person(44,"Sofia",Gender.Woman,false));
+        people.add(new Person(25,"Raul",Gender.MAN,true));
+        people.add(new Person(18,"Veronica",Gender.WOMAN,false));
+        people.add(new Person(27,"Rio",Gender.MAN,true));
+        people.add(new Person(33,"Martin",Gender.MAN,false));
+        people.add(new Person(44,"Sofia",Gender.WOMAN,false));
 
-        List<Chief> chiefs = new ArrayList<>();
+        List<Chef> chiefs = new ArrayList<>();
 
-        chiefs.add(new Chief("Claire", 40, Gender.Woman,8,false));
-        chiefs.add(new Chief("Bob", 41, Gender.Man,5,true));
-        chiefs.add(new Chief("Tom", 42, Gender.Man,3,true));
-        chiefs.add(new Chief("Nikita", 43, Gender.Woman,4,false));
-        chiefs.add(new Chief("Carla", 44, Gender.Woman,7,false));
+        chiefs.add(new Chef("Claire", 40, Gender.WOMAN,8,false));
+        chiefs.add(new Chef("Bob", 41, Gender.MAN,5,true));
+        chiefs.add(new Chef("Tom", 42, Gender.MAN,3,true));
+        chiefs.add(new Chef("Nikita", 43, Gender.WOMAN,4,false));
+        chiefs.add(new Chef("Carla", 44, Gender.WOMAN,7,false));
 
         System.out.println("=== People ===");
         for(Person person : people) {
@@ -45,7 +45,7 @@ public class Main {
         }
 
         System.out.println("=== Chiefs ===");
-        for(Chief c : chiefs) {
+        for(Chef c : chiefs) {
             c.introduce();
             c.printGoal();
             System.out.println(chief.cook("Spaghetti"));
