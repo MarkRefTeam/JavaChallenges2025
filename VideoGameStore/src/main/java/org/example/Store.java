@@ -12,12 +12,14 @@ public class Store {
         this.customers = new ArrayList<>();
     }
 
+    //Game:
+
     public void addGame(Game game) {
         games.add(game);
     }
 
-    public void addCustomer(Customer customer) {
-        customers.add(customer);
+    public void removeGame(Game game) {
+        games.remove(game);
     }
 
     public void listAvailableGames() {
@@ -29,6 +31,37 @@ public class Store {
         }
     }
 
+    public Game removeGameByName(String gameName) {
+        for (Game game : games) {
+            if (game.getTitle().equalsIgnoreCase(gameName)) {
+                games.remove(game);
+                return game;
+            }
+        }
+        return null;
+    }
+
+    //searching with "flag" logic:
+
+    public void searchGamesByTitle(String keyword) {
+        boolean found = false;
+        for(Game game : games) {
+            if(game.getTitle().toLowerCase().contains(keyword.toLowerCase())) {
+                System.out.println(game);
+                found = true;
+            }
+        }
+        if(!found) {
+            System.out.println("Zino: Sorry, no games found for " + keyword + ". :( ");
+        }
+    }
+
+    //Customers:
+
+    public void addCustomer(Customer customer) {
+        customers.add(customer);
+    }
+
     public void listCustomers() {
         System.out.println("Registered Customers: ");
         for (Customer customer : customers) {
@@ -37,34 +70,24 @@ public class Store {
     }
 
     public Customer findCustomerByName(String name) {
-        for(Customer customer : customers) {
-            if(customer.getName().equalsIgnoreCase(name)) {
+        for (Customer customer : customers) {
+            if (customer.getName().equalsIgnoreCase(name)) {
                 return customer;
             }
         }
         return null;
     }
 
-    public Game removeGameByName(String gameName) {
-        for(Game game : games) {
-            if(game.getTitle().equalsIgnoreCase(gameName)) {
-                games.remove(game);
-                return game;
-            }
-        }
-        return null;
-    }
-
     public Game getGameByName(String gameName) {
-        for(Game game : games) {
-            if(game.getTitle().equalsIgnoreCase(gameName)) {
+        for (Game game : games) {
+            if (game.getTitle().equalsIgnoreCase(gameName)) {
                 return game;
             }
         }
         return null;
     }
 
-    public void processSaleRequest(String gameTitle,String customerName) {
+    public void processSaleRequest(String gameTitle, String customerName) {
         Game selectedGame = null;
         Customer selectedCustomer = null;
 
@@ -91,6 +114,9 @@ public class Store {
 
         selectedCustomer.purchaseGame(selectedGame);
     }
+
+    //List's:
+
     public ArrayList<Game> getGames() {
         return games;
     }

@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Customer {
@@ -18,12 +19,21 @@ public class Customer {
     public String getName() {
         return name;
     }
+
     public double getWalletBalance() {
         return walletBalance;
     }
 
     public void addFunds(double amount) {
         walletBalance += amount;
+    }
+
+    public void addGame(Game game) {
+        ownedGames.add(game);
+    }
+
+    public void removeGame(Game game) {
+        ownedGames.remove(game);
     }
 
     public void purchaseGame(Game game) {
@@ -40,9 +50,29 @@ public class Customer {
         walletBalance -= game.getPrice();
         ownedGames.add(game);
         game.setInStock(false);
-        System.out.println(name + " successFully purchased " + game.getTitle());
+        System.out.println("Zino: " + game.getTitle() + " purchased successfully!");
     }
 
+    public List<Game> getOwnedGames() {
+        return ownedGames;
+    }
+
+    //ConcurrentModificationException ,wtf????
+
+    //An "iterator" is a tool that lets you safely loop through a collection
+    //(like an ArrayList) and remove items during the loop without causing errors.
+
+    public Game removeGameByName(String gameName) {
+        Iterator<Game> iterator = ownedGames.iterator();
+        while (iterator.hasNext()) {
+            Game game = iterator.next();
+            if (game.getTitle().equalsIgnoreCase(gameName)) {
+                iterator.remove();
+                return game;
+            }
+        }
+        return null;
+    }
 
     @Override
     public String toString() {

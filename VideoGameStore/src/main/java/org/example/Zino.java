@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Zino {
@@ -17,7 +18,7 @@ public class Zino {
         System.out.println("-------------------------");
     }
 
-    public static void wastingTimeAfter10Sec() {
+    public static void wastingTimeAfter5Sec() {
 
         //Easter eggs coming, just wait 5 sec!
         try {
@@ -37,8 +38,10 @@ public class Zino {
         System.out.println("4. Show customers");
         System.out.println("5. Our loyal crew");
         System.out.println("6. Transfer or sell games :P");
-        System.out.println("7. Exit! Bye :D");
-
+        System.out.println("7. Searching Games");
+        System.out.println("8. Upload some Credit!");
+        System.out.println("9. Your owned games");
+        System.out.println("10. Exit! Bye :D");
     }
 
     public static void respondToMenuChoice(int choice, Customer customer, Store store, Scanner scanner) {
@@ -107,6 +110,39 @@ public class Zino {
                 }
                 break;
             case 7:
+                System.out.println("Zino: Let's find some treasures in the vault");
+                System.out.print("Enter a keyword to search: ");
+                String keyword = scanner.nextLine();
+                store.searchGamesByTitle(keyword);
+                break;
+            case 8:
+                System.out.println("Enter your name");
+                String name = scanner.nextLine();
+                Customer current = store.findCustomerByName(name);
+                if (current != null) {
+                    System.out.println("Enter amount to add:");
+                    int amount = scanner.nextInt();
+                    scanner.nextLine();
+                    current.addFunds(amount);
+                    System.out.println("Zino: Added " + amount + "credit to " + name + "'s wallet!");
+                } else {
+                    System.out.println("Zino: Customer not found!");
+                }
+                break;
+            case 9:
+                System.out.println("Enter you name ");
+                String cName = scanner.nextLine();
+                Customer selected = store.findCustomerByName(cName);
+                if (selected != null) {
+                    System.out.println("Zino: Here's what " + cName + " owns: ");
+                    for (Game game : selected.getOwnedGames()) {
+                        System.out.println("- " + game.getTitle());
+                    }
+                } else {
+                    System.out.println("Zino: Customer not found!");
+                }
+                break;
+            case 10:
                 System.out.println("Zino: See you , gamer!");
                 break;
             default:
