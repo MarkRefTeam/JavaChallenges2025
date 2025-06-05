@@ -12,13 +12,13 @@ public class Main {
         //person.introduce();
         //person.printGoal();
 
-        Chef chief = new Chef("Mark",37,Gender.MAN,8,true);
-        chief.introduce();
-        chief.printGoal();
+        Chef chef = new Chef("Mark",37,Gender.MAN,8,true);
+        chef.introduce();
+        chef.printGoal();
         System.out.println();
         System.out.println("---- Chief Actions ----");
-        System.out.println(chief.cook("Gulyas"));
-        chief.leadMeeting();
+        System.out.println(chef.cook("Gulyas"));
+        chef.leadMeeting();
         System.out.println("------------------------");
 
         List<Person> people = new ArrayList<>();
@@ -29,13 +29,13 @@ public class Main {
         people.add(new Person(33,"Martin",Gender.MAN,false));
         people.add(new Person(44,"Sofia",Gender.WOMAN,false));
 
-        List<Chef> chiefs = new ArrayList<>();
+        List<Chef> chefs = new ArrayList<>();
 
-        chiefs.add(new Chef("Claire", 40, Gender.WOMAN,8,false));
-        chiefs.add(new Chef("Bob", 41, Gender.MAN,5,true));
-        chiefs.add(new Chef("Tom", 42, Gender.MAN,3,true));
-        chiefs.add(new Chef("Nikita", 43, Gender.WOMAN,4,false));
-        chiefs.add(new Chef("Carla", 44, Gender.WOMAN,7,false));
+        chefs.add(new Chef("Claire", 40, Gender.WOMAN,8,false));
+        chefs.add(new Chef("Bob", 41, Gender.MAN,5,true));
+        chefs.add(new Chef("Tom", 42, Gender.MAN,3,true));
+        chefs.add(new Chef("Nikita", 43, Gender.WOMAN,4,false));
+        chefs.add(new Chef("Carla", 44, Gender.WOMAN,7,false));
 
         System.out.println("=== People ===");
         for(Person person : people) {
@@ -45,10 +45,10 @@ public class Main {
         }
 
         System.out.println("=== Chiefs ===");
-        for(Chef c : chiefs) {
+        for(Chef c : chefs) {
             c.introduce();
             c.printGoal();
-            System.out.println(chief.cook("Spaghetti"));
+            System.out.println(chef.cook("Spaghetti"));
             c.leadMeeting();
             System.out.println();
         }

@@ -4,8 +4,8 @@ public class Chef extends Person {
 
     private int numberOfPeopleManaged;
 
-    public Chef(String name, int age, Gender gender, int numberOfPeopleManaged, boolean isRentable) {
-        super(age,name,gender,isRentable);
+    public Chef(String name, int age, Gender gender, int numberOfPeopleManaged, boolean isOpenToWork) {
+        super(age,name,gender,isOpenToWork);
         this.numberOfPeopleManaged = numberOfPeopleManaged;
     }
 
