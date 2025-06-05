@@ -3,10 +3,9 @@ package org.example;
 public class GameLogic {
 
     public static void transferGame(Store store, Customer from, Customer to, String gameName) {
-        Game gameToTransfer = store.removeGameByName(gameName);
+        Game gameToTransfer = from.removeGameByName(gameName);
         if (gameToTransfer != null) {
-            from.removeGame(gameToTransfer);
-            store.addGame(gameToTransfer);
+            to.addGame(gameToTransfer);
             System.out.println("Game transferred succesfully!");
         } else {
             System.out.println("Game not found in source inventory.");
