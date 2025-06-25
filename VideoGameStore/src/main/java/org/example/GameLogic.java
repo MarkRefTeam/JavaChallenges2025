@@ -2,7 +2,7 @@ package org.example;
 
 public class GameLogic {
 
-    public static void transferGame(Store store, Customer from, Customer to, String gameName) {
+    public static boolean transferGame(Store store, Customer from, Customer to, String gameName) {
         Game gameToTransfer = from.removeGameByName(gameName);
         if (gameToTransfer != null) {
             to.addGame(gameToTransfer);
@@ -10,6 +10,7 @@ public class GameLogic {
         } else {
             System.out.println("Game not found in source inventory.");
         }
+        return false;
     }
 
     public static void sellGame(Store store, Customer buyer, String gameName) {

@@ -14,6 +14,10 @@ public class Game {
         this.inStock = inStock;
     }
 
+    public boolean isInStock() {
+        return inStock;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -39,4 +43,5 @@ public class Game {
         return "Game: " + title + " | Genre: " + genre +
                 " | Price " + price + " | in stock : " + inStock;
     }
+
 }

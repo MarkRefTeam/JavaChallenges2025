@@ -6,6 +6,12 @@ import java.util.Scanner;
 
 public class Zino {
 
+    //Formats:
+    //String: %s
+    //Int %d
+    //Double %.2f
+    //New line: %n
+
     public static void sayHello() {
 
         //ChatBot welcome message:
@@ -51,17 +57,15 @@ public class Zino {
                 System.out.println("Zino: Here's what we've got in stock!");
                 for (Game game : store.getGames()) {
                     if (game.inStock()) {
-                        System.out.println(":) " + game.getTitle() + " - " +
-                                game.getGenre() + "($" +
-                                game.getPrice() + ")");
+                        System.out.printf(":) %s - %s ($%.2f)%n", game.getTitle(), game.getGenre(), game.getPrice());
                     }
                 }
                 System.out.println("Zino: Don't see your favorite game? Tough luck ,kiddo :D :D");
                 break;
             case 2:
                 System.out.println("Zino: Let me count your coins...");
-                System.out.println("Zino: " + customer.getName() + ", you have " + customer.getWalletBalance()
-                        + "credit left in your wallet!");
+                System.out.printf("Zino: %s, you have %.2f credit left in your wallet!%n",
+                        customer.getName(), customer.getWalletBalance());
                 break;
             case 3:
                 System.out.println("Zino: One cheat code coming right up!");
@@ -124,7 +128,7 @@ public class Zino {
                     int amount = scanner.nextInt();
                     scanner.nextLine();
                     current.addFunds(amount);
-                    System.out.println("Zino: Added " + amount + "credit to " + name + "'s wallet!");
+                    System.out.printf("Zino: Added %d credit to %s's wallet!%n", amount, name);
                 } else {
                     System.out.println("Zino: Customer not found!");
                 }
