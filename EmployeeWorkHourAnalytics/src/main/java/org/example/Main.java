@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+
+import org.example.AnalyticsService;
 
 /**
  * Same Data – 3 Ways project!
@@ -46,14 +46,31 @@ public class Main {
         String filePath = "src/main/resources/employee_hours.csv";
         List<Employee> employees = CsvReader.readEmployees(filePath);
 
-
         //Part 2:
         Path path = Paths.get("src", "main", "resources", "employee_hours.csv");
         BufferedReader reader = Files.newBufferedReader(path);
 
+        Map<String, Integer> totalHours = AnalyticsService.calculateTotalWeeklyHours(employees);
+        Map<String, Double> avgDailyHours = AnalyticsService.calculateAverageDailyHours(employees);
+        Map<String, Double> weeklyAvgByDept = AnalyticsService.calculateAverageWeeklyHoursByDepartment(employees);
+        weeklyAvgByDept.forEach((dep, avg) -> System.out.printf("%s: %.2f weekly hours%n", dep, avg));
+        Map<String, Employee> topByDept = AnalyticsService.findTopEmployeeByDepartment(employees);
+        Optional<Employee> topEmployee = AnalyticsService.findTopEmployeeOverall(employees);
+
+        topEmployee.ifPresent(emp -> {
+            int hours = emp.getDailyHours().stream().mapToInt(Integer::intValue).sum();
+            System.out.printf("TOP EMPLOYEE OVERALL: %s (%d hours)%n", emp.getName(), hours);
+        });
+
+
+        System.out.println("\n--- Total Weekly Hours ---");
+        totalHours.forEach((name, total) -> System.out.println(name + ": " + total + " hours"));
+
+        System.out.println("\n--- Average Daily Hours ---");
+        avgDailyHours.forEach((name, avg) -> System.out.printf("%s: %.2f hours/day%n", name, avg));
+
         for (Employee emp : employees) {
             System.out.println(emp);
         }
-
     }
 }
