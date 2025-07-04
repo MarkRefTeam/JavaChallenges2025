@@ -42,7 +42,9 @@ public class CsvReader {
 
         reader.readLine();
         while ((line = reader.readLine()) != null) {
-            if (line.trim().isEmpty()) continue;
+            if (line.trim().isEmpty()) {
+                continue;
+            }
             String[] parts = line.split(",");
 
             String name = parts[0];
@@ -52,10 +54,11 @@ public class CsvReader {
                 hours.add(Integer.parseInt(parts[i]));
             }
 
-            Employee employee = new Employee();
-            employee.setName(name);
-            employee.setDepartment(department);
-            employee.setDailyHours(hours);
+            Employee employee = Employee.builder()
+                    .name(name)
+                    .department(department)
+                    .dailyHours(hours)
+                    .build();
 
             employees.add(employee);
         }

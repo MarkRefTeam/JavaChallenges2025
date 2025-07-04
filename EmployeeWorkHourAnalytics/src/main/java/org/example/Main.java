@@ -7,8 +7,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 
-import org.example.AnalyticsService;
-
 /**
  * Same Data – 3 Ways project!
  * Simply call from resources (Part 1):
