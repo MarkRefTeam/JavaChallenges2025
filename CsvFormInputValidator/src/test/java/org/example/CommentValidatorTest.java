@@ -12,16 +12,16 @@ public class CommentValidatorTest {
 
     @Test
     void validCommentShouldReturnTrue() {
-        assertTrue(validator.isValid("Hello, world!"));
+        assertTrue(validator.validate("Hello, world!"));
     }
 
     @Test
     void invalidCommentShouldReturnFalse() {
-        assertFalse(validator.isValid("<script>alert('XSS')</script>"));
+        assertFalse(validator.validate("<script>alert('XSS')</script>"));
     }
 
     @Test
     void nullCommentShouldReturnFalse() {
-        assertFalse(validator.isValid(null));
+        assertFalse(validator.validate(null));
     }
 }

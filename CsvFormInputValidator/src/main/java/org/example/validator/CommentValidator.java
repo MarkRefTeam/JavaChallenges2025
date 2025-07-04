@@ -1,9 +1,9 @@
 package org.example.validator;
 
-public class CommentValidator {
+public class CommentValidator implements Validator<String> {
 
-    public boolean isValid(String input) {
-        //return comment != null && !comment.trim().isEmpty();
+    @Override
+    public boolean validate(String input) {
         return input != null && input.matches("^[a-zA-Z0-9 \\-_!?,.$]+$");
     }
 }

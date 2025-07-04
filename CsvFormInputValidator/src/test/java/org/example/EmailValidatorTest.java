@@ -12,16 +12,16 @@ public class EmailValidatorTest {
 
     @Test
     void validEmailShouldReturnTrue() {
-        assertTrue(validator.isValid("something@email.com"));
+        assertTrue(validator.validate("something@email.com"));
     }
 
     @Test
     void nullEmailShouldReturnFalse() {
-        assertFalse(validator.isValid(null));
+        assertFalse(validator.validate(null));
     }
 
     @Test
     void emailWithoutAtShouldReturnFalse() {
-        assertFalse(validator.isValid("something.com"));
+        assertFalse(validator.validate("something.com"));
     }
 }

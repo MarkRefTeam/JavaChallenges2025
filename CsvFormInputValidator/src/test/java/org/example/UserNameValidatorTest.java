@@ -12,16 +12,16 @@ public class UserNameValidatorTest {
 
     @Test
     void validUsernameShouldReturnTrue() {
-        assertTrue(validator.isValid("john_doe"));
+        assertTrue(validator.validate("john_doe"));
     }
 
     @Test
     void usernameWithSpecialCharShouldReturnFalse() {
-        assertFalse(validator.isValid("john@doe"));
+        assertFalse(validator.validate("john@doe"));
     }
 
     @Test
     void nullUsernameShouldReturnFalse() {
-        assertFalse(validator.isValid(null));
+        assertFalse(validator.validate(null));
     }
 }

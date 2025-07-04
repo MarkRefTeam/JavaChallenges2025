@@ -1,9 +1,9 @@
 package org.example.validator;
 
-public class UserNameValidator {
+public class UserNameValidator implements Validator<String> {
 
-    public static boolean isValid(String input) {
-        //return username != null && username.length() >= 3;
+    @Override
+    public boolean validate(String input) {
         return input != null && input.matches("^[a-zA-Z0-9_]+$");
     }
 }

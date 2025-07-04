@@ -16,7 +16,7 @@ public class CsvParser {
         List<UserComment> result = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(pathToCsv))) {
-            String line = reader.readLine();
+            String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",", -1);
 
