@@ -1,11 +1,12 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Store {
 
-    private ArrayList<Game> games;
-    private ArrayList<Customer> customers;
+    final List<Game> games;
+    final List<Customer> customers;
 
     public Store() {
         this.games = new ArrayList<>();
@@ -117,11 +118,11 @@ public class Store {
 
     //List's:
 
-    public ArrayList<Game> getGames() {
+    public List<Game> getGames() {
         return games;
     }
 
-    public ArrayList<Customer> getCustomers() {
+    public List<Customer> getCustomers() {
         return customers;
     }
 

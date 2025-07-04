@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import static java.lang.String.format;
+
 public class Customer {
 
     private String name;
@@ -76,6 +78,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer: " + name + " | Wallet: " + walletBalance + "\nOwned Games: " + ownedGames;
+        return String.format("Customer: %s | Wallet: %.2f | Owned games: %d",
+                this.name, this.walletBalance, this.ownedGames.size());
     }
 }

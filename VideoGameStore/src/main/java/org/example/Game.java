@@ -40,8 +40,8 @@ public class Game {
 
     @Override
     public String toString() {
-        return "Game: " + title + " | Genre: " + genre +
-                " | Price " + price + " | in stock : " + inStock;
+        return String.format("Game: %s | Genre: %s | Price: $%.2f | In stock: %b",
+                title, genre, price, inStock);
     }
 
 }

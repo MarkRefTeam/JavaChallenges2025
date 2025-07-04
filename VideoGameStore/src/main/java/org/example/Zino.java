@@ -1,7 +1,5 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Zino {
@@ -53,7 +51,7 @@ public class Zino {
     public static void respondToMenuChoice(int choice, Customer customer, Store store, Scanner scanner) {
 
         switch (choice) {
-            case 1:
+            case 1 -> {
                 System.out.println("Zino: Here's what we've got in stock!");
                 for (Game game : store.getGames()) {
                     if (game.inStock()) {
@@ -61,31 +59,38 @@ public class Zino {
                     }
                 }
                 System.out.println("Zino: Don't see your favorite game? Tough luck ,kiddo :D :D");
-                break;
-            case 2:
+            }
+
+            case 2 -> {
                 System.out.println("Zino: Let me count your coins...");
                 System.out.printf("Zino: %s, you have %.2f credit left in your wallet!%n",
                         customer.getName(), customer.getWalletBalance());
-                break;
-            case 3:
+            }
+
+            case 3 -> {
                 System.out.println("Zino: One cheat code coming right up!");
                 System.out.println("Zino: Use 'IDDQD' next time for god mode"); //You know Doom right? :D
-                break;
-            case 4:
+            }
+
+            case 4 -> {
                 System.out.println("Zino: These are our current customers (tech view):");
                 for (Customer c : store.getCustomers()) {
                     System.out.println(" - " + c);
                 }
-            case 5:
+            }
+            case 5 -> {
                 System.out.println("Zino: Here's the crew who's been keeping this store alive: ");
                 System.out.println("-----------------------------------------");
                 store.listCustomers();
                 System.out.println("-----------------------------------------");
-                break;
-            case 6:
+            }
+
+
+            case 6 -> {
                 System.out.println("Zino: What do you want to do?");
                 System.out.println("1.Transfer game between customer");
                 System.out.println("2. Sell game to the customer");
+
                 int subChoice = scanner.nextInt();
                 scanner.nextLine();
 
@@ -112,15 +117,20 @@ public class Zino {
                 } else {
                     System.out.println("Zino: Invalid choice, bro");
                 }
-                break;
-            case 7:
+            }
+
+            case 7 -> {
                 System.out.println("Zino: Let's find some treasures in the vault");
                 System.out.print("Enter a keyword to search: ");
+
                 String keyword = scanner.nextLine();
                 store.searchGamesByTitle(keyword);
-                break;
-            case 8:
+            }
+
+
+            case 8 -> {
                 System.out.println("Enter your name");
+
                 String name = scanner.nextLine();
                 Customer current = store.findCustomerByName(name);
                 if (current != null) {
@@ -132,9 +142,11 @@ public class Zino {
                 } else {
                     System.out.println("Zino: Customer not found!");
                 }
-                break;
-            case 9:
+            }
+
+            case 9 -> {
                 System.out.println("Enter you name ");
+
                 String cName = scanner.nextLine();
                 Customer selected = store.findCustomerByName(cName);
                 if (selected != null) {
@@ -145,13 +157,11 @@ public class Zino {
                 } else {
                     System.out.println("Zino: Customer not found!");
                 }
-                break;
-            case 10:
-                System.out.println("Zino: See you , gamer!");
-                break;
-            default:
-                System.out.println("Zino: That's not on the list, try again!");
+            }
 
+            case 10 -> System.out.println("Zino: See you , gamer!");
+
+            default -> System.out.println("Zino: That's not on the list, try again!");
         }
     }
 }
