@@ -13,8 +13,7 @@ public class Main {
         uc.setUsername("Test");
         System.out.println(uc.getUsername());
 
-        String path = "C:\\work\\CleanedRepo\\CsvFormInputValidator\\src\\main\\resources";
-        List<UserComment> comments = CsvParser.parse(path);
+        List<UserComment> comments = CsvParser.parse("username.email.comment.csv");
         System.out.println("All valid comment number: " + comments.size());
     }
 }

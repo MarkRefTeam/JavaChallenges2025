@@ -4,9 +4,7 @@ import org.example.model.UserComment;
 import org.example.sanitizer.InputSanitizer;
 import org.example.validator.ValidatorService;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +13,13 @@ public class CsvParser {
     public static List<UserComment> parse(String pathToCsv) {
         List<UserComment> result = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(pathToCsv))) {
+        try (InputStream is = CsvParser.class.getClassLoader().getResourceAsStream(pathToCsv);
+             BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
+
+            if (is == null) {
+                System.err.println("Resource file not found: " + pathToCsv);
+                return result;
+            }
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",", -1);

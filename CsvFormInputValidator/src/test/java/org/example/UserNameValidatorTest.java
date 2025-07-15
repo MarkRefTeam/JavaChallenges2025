@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.validator.UserNameValidator;
+import org.example.validator.Validator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -8,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class UserNameValidatorTest {
 
-    UserNameValidator validator = new UserNameValidator();
+    Validator<String> validator = new UserNameValidator();
 
     @Test
     void validUsernameShouldReturnTrue() {

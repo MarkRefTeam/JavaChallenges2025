@@ -1,6 +1,5 @@
 package org.example;
 
-import org.example.validator.ValidatorService;
 import org.junit.jupiter.api.Test;
 
 import static org.example.validator.ValidatorService.isValid;

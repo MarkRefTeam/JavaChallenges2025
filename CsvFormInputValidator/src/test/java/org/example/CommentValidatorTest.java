@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.validator.CommentValidator;
+import org.example.validator.Validator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -8,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CommentValidatorTest {
 
-    CommentValidator validator = new CommentValidator();
+    Validator<String> validator = new CommentValidator();
 
     @Test
     void validCommentShouldReturnTrue() {
