@@ -15,4 +15,3 @@ public class Account {
     private int failedLoginAttempts = 0;
     private boolean locked = false;
 }
-

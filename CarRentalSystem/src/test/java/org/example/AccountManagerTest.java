@@ -18,7 +18,6 @@ public class AccountManagerTest {
 
     @Test
     public void testCreateAccountSuccess() {
-
         boolean created = manager.createAccount("user1","pass123",0,false);
         assertTrue(created);
     }

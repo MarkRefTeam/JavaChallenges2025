@@ -37,7 +37,6 @@ public class IPbanSystemTest {
 
         boolean isBanned = ipbanSystem.isBanned(testIP);
         assertTrue(isBanned, "The IP should be listed as banned");
-
         assertTrue(ipbanSystem.getBannedIPs().contains(testIP), "Banned IP list should contain the IP");
     }
 

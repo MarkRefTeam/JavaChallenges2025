@@ -1,0 +1,13 @@
+package gp.core.rules;
+
+public enum RuleId {
+    FUTURE_AI_DEFENSE,
+    OFFLINE_FIRST,
+    PATCH_IDEMPOTENT,
+    LOG_SECURE,
+    NO_LEAK,
+    RECOVERY_PROTOCOL,
+    SAFETY_SNAPSHOT_RULE,
+    SUPPLY_CHAIN_REFLEX_RULE,
+    SANDBOX_OPENING_RULE
+}
