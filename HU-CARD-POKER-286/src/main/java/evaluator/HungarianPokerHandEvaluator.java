@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 
 public class HungarianPokerHandEvaluator {
 
+    private final HandRuleEvaluator ruleEvaluator = new HandRuleEvaluator();
+
     private static final HungarianPokerHandEvaluator INSTANCE =
             new HungarianPokerHandEvaluator();
 
@@ -29,7 +31,8 @@ public class HungarianPokerHandEvaluator {
                 ));
     }
 
-    private HungarianPokerHandEvaluator() {}
+    private HungarianPokerHandEvaluator() {
+    }
 
     public static HungarianPokerHandEvaluator getInstance() {
         return INSTANCE;
@@ -43,32 +46,18 @@ public class HungarianPokerHandEvaluator {
         //Map<Value, Long> valueCounts = countValues(hand);
         //Map<Colour, Long> colourCounts = countColours(hand);
 
-
-        //1.) Poker!
-        boolean isPoker = valueCounts.stream()
-                .anyMatch(count -> count == 4L);
-
-        if(isPoker) {
+        if (ruleEvaluator.isPoker(valueCounts)) {
             return HandType.POKER;
         }
 
-        //2.) Flush!
-        boolean isFlush = colourCounts.stream()
-                .anyMatch(count -> count == 7L);
-
-        if(isFlush) {
+        if (ruleEvaluator.isFlush(colourCounts)) {
             return HandType.FLUSH;
         }
 
-        //3.) Almost Flush!
-        boolean isAlmostFlush = colourCounts.stream()
-                .anyMatch(count -> count >= 4L && count <= 7L);
-
-        if(isAlmostFlush) {
+        if (ruleEvaluator.isAlmostFlush(colourCounts)) {
             return HandType.ALMOST_FLUSH;
         }
 
-        //4.) Nothing
         return HandType.NOTHING;
     }
 }
