@@ -58,7 +58,10 @@ public class Main {
         em.getTransaction().begin();
 
         var javaCourse = em.find(Course.class, java.getId());
-        var studentToUpdate = javaCourse.getStudents().get(0);
+        var studentToUpdate = javaCourse.getStudents()
+                .stream()
+                .findFirst()
+                .orElseThrow();
         studentDao.updateEmail(studentToUpdate.getId(), "updated@mail.com");
 
         courseDao.deleteById(python.getId());
