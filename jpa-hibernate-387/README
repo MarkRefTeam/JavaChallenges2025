@@ -1,0 +1,62 @@
+# jpa-hibernate-387 – People CRUD (Hibernate + MySQL)
+
+Console-based CRUD application built with Hibernate (JPA) and MySQL.
+The project focuses on layered architecture (DAO pattern), HQL usage, transaction handling, and advanced data management concepts such as soft delete.
+
+## Features
+
+- Full CRUD operations for the `Person` entity
+- Case-insensitive search by name
+- **Soft delete** implementation (`deleted`, `deleted_at`)
+- **Recycle Bin functionality**
+  - List deleted records
+  - Restore deleted records by ID
+- HQL queries with filtering (`deleted = false`) for active records
+
+## Architecture & Design
+
+- DAO layer responsible for database operations
+- Explicit transaction management (commit / rollback)
+- Separation of concerns between entity, DAO, and application layer
+- HQL used instead of raw SQL for entity-based querying
+
+## Quality & Stability
+
+- Console menu with input validation
+- Transaction safety to prevent inconsistent state
+- Soft delete ensures data is not physically removed
+- Clean test isolation using test cleanup strategy
+
+## Automated Tests
+
+DAO-level integration-style tests implemented using JUnit 5 and AssertJ:
+
+- `save_shouldPersistAndAssignId`
+- `findAll_shouldReturnOnlyNotDeleted`
+- `deleteById_shouldSoftDelete`
+- `restoreById_shouldUndoSoftDelete`
+- `searchByName_shouldIgnoreDeleted`
+
+All tests passing ✅ (5/5).
+
+## Tech Stack
+
+- Java 17
+- Maven
+- Hibernate ORM 6 (Jakarta)
+- MySQL
+- JUnit 5
+- AssertJ
+- SLF4J + Logback
+
+## Database Setup
+
+The project uses MySQL.
+Connection settings are configured in `hibernate.cfg.xml`.
+
+Soft delete requires the following columns in the `person` table:
+
+```sql
+ALTER TABLE person
+  ADD COLUMN deleted TINYINT(1) NOT NULL DEFAULT 0,
+  ADD COLUMN deleted_at DATETIME NULL;

@@ -1,0 +1,3 @@
+db.url=jdbc:mysql://localhost:3306/webshop
+db.username=YOUR_USER
+db.password=YOUR_PASSWORD
